@@ -19,8 +19,8 @@
 
             <img src="{{ movie.poster.url }}" height="400px" width="240px">
             <div>
-                <a href="{% url 'display' movie.id %}">{{ movie.title }}</a>
-                <h5>{{ movie.year|date:"d-m-Y" }}</h5>
+               <a href="{% url 'display' movie.id %}" style="text-decoration: none; font-size: large; color: black;">{{ movie.title }}</a>
+                <h5 >{{ movie.year|date:"d-m-Y" }}</h5>
             </div>
         </div>
         {% endfor %}
