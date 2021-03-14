@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Movie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        background-color: rgb(209, 200, 187);
+    }
+</style>
+<body>
+
+    <div class="row">
+        <div class="col-2">
+        <img src="{{ movie.poster.url }}" height="400px" width="240px">
+
+        <div>
+            <h3>{{ movie.title }} </h3>
+            <p>Release Date: ({{ movie.year|date:"d-m-Y" }})</p>
+            <p>Description: {{ movie.desc }}</p>
+            <p>Category: {% for category in movie.category.all %}{{ category }} {% endfor %}</p>
+            <p>Category: {% for cast in movie.cast.all %}{{ cast }} {% endfor %}</p>
+            <p>Country: {{ movie.country }}</p>
+            <p>Rate: {{ movie.rate }}</p>
+           
+        </div></div>
+        <div class="col-10">
+        <video controls width="100%"  height="80%" src="{{ request.scheme }}://{{ request.get_host }}{{ movie.video.url }}"></video>
+    </div>
+    </div>
+    <a href="{% url 'update' movie.id %}"><button class="btn btn-secondary">Update</button></a><a href="{% url 'delete' movie.id %}"><button class="btn btn-danger">Delete</button></a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
