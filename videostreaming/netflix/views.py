@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect
 from .forms import MovieForm, CategoryForm, CastForm, CountryForm
 from .models import Movie
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.context_processors import PermWrapper
 
 
 # Create your views here.
+@login_required
 def index(request):
     movies = Movie.objects.all()
     return render (request,"index.html",{

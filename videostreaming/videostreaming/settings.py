@@ -33,7 +33,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'netflix',
+    'rest_framework',
     'accounts',
+    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +53,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 ROOT_URLCONF = 'videostreaming.urls'
 
@@ -107,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LOGIN_REDIRECT_URL= "/netflix"
-# LOGOUT_REDIRECT_URL= "/accounts/login"
+LOGOUT_REDIRECT_URL= "/netflix"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

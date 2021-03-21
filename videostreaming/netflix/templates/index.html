@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-
+<a href="{% url 'logout' %}"><button class="btn btn-dark">Logout</button></a> 
     <h1 class="text-center">Movies</h1>
     <div class="row">
         {% for movie in movies %}
@@ -26,7 +26,10 @@
         {% endfor %}
     </div>
     <div class="text-center">
-        <a href="{% url 'add' %}"><button class="btn btn-dark">Add New Movie</button></a>
+{% if perms.netflix.add_movie %}
+<a href="{% url 'add' %}"><button class="btn btn-dark">Add New Movie</button></a>    
+{% endif %}
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 

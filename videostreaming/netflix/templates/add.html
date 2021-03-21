@@ -11,6 +11,7 @@
     </style>
 </head>
 <body>
+<a href="{% url 'logout' %}"><button class="btn btn-dark">Logout</button></a> 
 
     <form action="{% url 'add' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}

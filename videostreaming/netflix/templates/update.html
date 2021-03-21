@@ -11,6 +11,8 @@
 </style>
 </head>
 <body>
+<a href="{% url 'logout' %}"><button class="btn btn-dark">Logout</button></a> 
+
 <form action="{% url 'update' movie.id%}" method="post" enctype="multipart/form-data">
                {% csrf_token %}
     {{  form.as_p  }}
